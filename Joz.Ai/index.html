@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kanban Task Board</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; }
+    .board { display: flex; gap: 1rem; margin-top: 20px; }
+    .column { flex: 1; background: #fff; padding: 10px; border-radius: 4px; }
+    .column h2 { margin-top: 0; }
+    .task { background: #e3e3ff; margin: 5px 0; padding: 5px; border-radius: 3px; cursor: grab; }
+    .task.dragging { opacity: 0.5; }
+    .dropzone { min-height: 50px; padding: 5px; border: 1px dashed #ccc; }
+    button { margin-left: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Kanban Board (Clumsy Version)</h1>
+
+  <form id="taskForm">
+    <input id="taskTitle" placeholder="Task title..." required>
+     <select id="taskPriority">
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+    <button type="submit">Add</button>
+  </form>
+
+  <div class="board">
+    <div class="column" data-status="todo">
+      <h2>To Do</h2>
+      <div class="dropzone" id="todo"></div>
+    </div>
+    <div class="column" data-status="inprogress">
+      <h2>In Progress</h2>
+      <div class="dropzone" id="inprogress"></div>
+    </div>
+    <div class="column" data-status="done">
+      <h2>Done</h2>
+      <div class="dropzone" id="done"></div>
+    </div>
+  </div>
+  <script type="module" src="main.js"></script>
+  </body>
+</html>
